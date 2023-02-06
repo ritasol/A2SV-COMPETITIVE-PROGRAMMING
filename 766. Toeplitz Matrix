@@ -1,0 +1,24 @@
+class Solution:
+    def isToeplitzMatrix(self, matrix: List[List[int]]) -> bool:
+        row = len(matrix)
+        col = len(matrix[0])
+        for i in range(col):
+            num = matrix[0][i]
+            j = i 
+            pt = 0
+            while j<col and pt<row:
+                if num != matrix[pt][j]:
+                  return False
+                j += 1
+                pt += 1
+        
+        for i in range(1,row):
+            num = matrix[i][0]
+            j = 0 
+            pt = i
+            while j<col and pt<row:
+                if num != matrix[pt][j]:
+                  return False
+                j += 1
+                pt += 1
+        return True
