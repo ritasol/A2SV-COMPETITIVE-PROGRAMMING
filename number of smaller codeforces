@@ -1,0 +1,10 @@
+n, k = map(int, input().split())
+nums_1 = list(map(int,input().split()))
+nums_2 = list(map(int,input().split()))
+pt = 0
+for i in range(k):
+    while (pt < n and nums_1[pt] < nums_2[i]):
+        pt += 1
+    print(pt, end=" ")
+
+    
