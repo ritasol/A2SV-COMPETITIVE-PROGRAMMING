@@ -1,0 +1,16 @@
+n = int(input())
+arr=list(map(int,input().split()))
+
+e = []
+o = []
+
+for i in arr:
+    if i % 2 == 0:
+        e.append(i)
+    else:
+        o.append(i)
+        
+if len(e) > 0 and len(o) > 0:
+    print(*sorted(arr))
+else:
+    print(*arr)
