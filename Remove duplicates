@@ -1,0 +1,28 @@
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def deleteDuplicates(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        curr = head
+        prev = ListNode(0)
+        pt = head
+        prev.next = curr
+        ans = prev
+        
+        hash_set = {}
+     
+        
+        while pt:
+            hash_set[pt.val] = hash_set.get(pt.val,0) + 1
+            pt = pt.next
+            print(pt)
+       
+        while curr:
+            if hash_set[curr.val] == 1:
+                prev.next = curr
+                prev = curr
+            curr = curr.next
+        prev.next = None
+        return ans.next
