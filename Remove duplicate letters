@@ -1,0 +1,10 @@
+class Solution:
+    def removeDuplicateLetters(self, s: str) -> str:
+        ans = []
+        dict = {chrr: i for i, chrr in enumerate(s)}
+        for i , chrr in enumerate(s):
+            if chrr not in ans:
+                while ans and i < dict[ans[-1]] and chrr < ans[-1]:
+                    ans.pop()
+                ans.append(chrr)
+        return "".join(ans)   
