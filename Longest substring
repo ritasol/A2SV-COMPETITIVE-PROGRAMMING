@@ -1,0 +1,22 @@
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        Dict = {}
+        maxim = 1
+        if s == "":
+            return 0        
+        l = 0
+        r = 0
+        while r < len(s):
+            Dict[s[r]] = Dict.get(s[r],0) + 1
+            if Dict[s[r]] > 1:
+                maxim = max(maxim,r-l-1)
+                l += 1
+                r = l 
+                Dict = {}
+            else:
+                r += 1
+        print(Dict)
+        return maxim
+
+
+        
