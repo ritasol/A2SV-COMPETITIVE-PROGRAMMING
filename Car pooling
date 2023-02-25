@@ -1,0 +1,14 @@
+class Solution:
+    def carPooling(self, trips: List[List[int]], capacity: int) -> bool:
+        car = [0]* 1001
+        for n,f,t in trips:
+            car[f] += n
+            car[t] -= n
+
+        for i in range(1,1001):
+            car[i] += car[i-1]
+
+
+        if max(car)<=capacity:
+            return True 
+
