@@ -1,0 +1,24 @@
+class Solution:
+    def evalRPN(self, tokens: List[str]) -> int:
+        stack=[]
+        operators = {'+', '-', '*', '/'}
+        for char in tokens :
+            if char not in operators:
+                stack.append(int(char))
+            elif len(stack) > 1:
+                num2 = stack.pop()
+                num1 = stack.pop()
+                if char == '+':
+                    value=(num1) + (num2)
+                elif char == '-':
+                    value = (num1) - (num2)
+                elif char == '*':
+                    value = (num1) * (num2)
+                elif char == '/':
+                    if num2 < 0:
+                        num2 = -num2
+                    value = (num1)//(num2)
+                stack.append(value)
+                
+                
+        return stack[-1]
