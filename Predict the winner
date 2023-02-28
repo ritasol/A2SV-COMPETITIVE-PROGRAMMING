@@ -1,0 +1,11 @@
+class Solution:
+    def PredictTheWinner(self, nums: List[int]) -> bool:
+
+    
+        def winner(nums:List[int],s:int,e:int,turn:int):
+            if s == e:
+                return turn * nums[s]
+            a = turn * nums[s] + winner(nums,s+1,e,-turn)
+            b = turn * nums[e] + winner(nums,s,e-1,-turn)
+            return turn * max(turn *a , turn * b)
+        return winner(nums,0,len(nums)-1,1) >= 0
