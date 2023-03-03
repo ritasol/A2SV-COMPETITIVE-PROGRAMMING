@@ -1,0 +1,26 @@
+class Solution:
+    def numSmallerByFrequency(self, queries: List[str], words: List[str]) -> List[int]:
+        f_words = []
+        for i in words:
+            f_words.append(i.count(min(i)))
+            
+        f_words.sort()
+        
+        ans = []
+
+        for i in queries:
+            cnt = i.count(min(i))
+            left = 0
+            right = len(f_words)
+            while left < right:
+                mid = (left+right)//2
+                if f_words[mid] > cnt:
+                    right = mid
+                else:
+                    left = mid + 1
+            ans.append(len(f_words)-left)
+        return ans
+            
+                
+ 
+                
