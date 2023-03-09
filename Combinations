@@ -1,0 +1,28 @@
+class Solution:
+    def helper(self,i,n,k,temp):
+        if k == 0:
+            self.ans.append(temp[:])
+            return 
+            
+        if i > n:
+            return  
+        
+        temp.append(i) 
+        self.helper(i+1,n,k-1,temp)
+        temp.pop()
+        self.helper(i+1,n,k,temp)
+        return self.ans
+    # def helper(self,i,n,temp):
+    #     if i == len(temp):
+    #         self.ans.append(temp[:])
+    #         return
+    #     for cand in range(1,n+1):
+    #         temp[i] = cand
+    #         self.helper(i+1,n,temp)
+        
+
+    def combine(self, n: int, k: int) -> List[List[int]]:
+        i = 1
+        temp = []
+        self.ans = []
+        return self.helper(i,n,k,temp)
