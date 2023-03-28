@@ -1,0 +1,21 @@
+class Solution:
+    def findErrorNums(self, nums: List[int]) -> List[int]:
+        n = len(nums)
+
+        missing ={}
+        idx =0
+
+        while idx < n:
+            corr_idx = nums[idx] - 1
+            if corr_idx != idx and nums[corr_idx] == nums[idx]:
+                item = nums[idx]
+                missing[item] = idx + 1
+                idx += 1
+
+            elif corr_idx != idx:
+                nums[corr_idx],nums[idx] = nums[idx],nums[corr_idx]
+            else:
+                idx += 1
+        return [item,missing[item]]
+        
+        
