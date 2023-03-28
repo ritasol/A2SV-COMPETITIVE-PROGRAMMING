@@ -1,0 +1,45 @@
+class Solution:
+    def sorting(self,l1,l2):
+        i,j = 0,0
+        ans= []
+        l1.append(sys.maxsize)
+        l2.append(sys.maxsize)
+        while i < len(l1) and j < len(l2):
+            if l1[i] < l2[j]:
+                ans.append(l1[i])
+                i += 1
+            else:
+                ans.append(l2[j])
+                j += 1
+        ans.pop()
+        return ans
+        
+    def merge(self,nums,diff):
+        if len(nums) == 1:
+            return nums
+        mid =len(nums)//2
+
+        L = nums[:mid]
+        R = nums[mid:]
+
+        left = self.merge(L,diff)
+        right = self.merge(R,diff)
+
+        left.append(sys.maxsize)
+        l,r = 0,0
+        while l < len(left) and r < len(right):
+            if right[r] < left[l]-diff:
+                self.cnt += l
+                r += 1
+            else:
+                l += 1
+        left.pop()
+        return self.sorting(left,right)
+                
+    def numberOfPairs(self, nums1: List[int], nums2: List[int], diff: int) -> int:
+        nums = []
+        self.cnt = 0
+        for i in range(len(nums1)):
+            nums.append(nums1[i]-nums2[i])
+        self.merge(nums,diff)
+        return self.cnt
