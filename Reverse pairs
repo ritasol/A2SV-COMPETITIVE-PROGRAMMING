@@ -1,0 +1,43 @@
+class Solution:
+    def sorting(self,l1,l2):
+        ans = []
+        i,j = 0,0
+        l1.append(sys.maxsize)
+        l2.append(sys.maxsize)
+        while i < len(l1) and j < len(l2):
+            if l1[i] < l2[j]:
+                ans.append(l1[i])
+                i += 1
+            else:
+                ans.append(l2[j])
+                j += 1
+        ans.pop()
+        return ans
+        
+    def merge(self,lst):
+        if len(lst) == 1:
+            return lst
+
+        mid = len(lst)//2
+        left = lst[:mid]
+        right = lst[mid:]
+
+        left = self.merge(left)
+        right = self.merge(right)
+        right.append(sys.maxsize)
+        l,r = 0,0
+        while l < len(left) and r<len(right) :
+            if left[l] > 2*right[r]:
+                r += 1
+            else:
+                self.cnt += r
+                l += 1
+        right.pop()
+        return self.sorting(left,right)
+
+
+    def reversePairs(self, nums: List[int]) -> int:
+        self.cnt = 0
+        self.merge(nums)
+        return self.cnt 
+        
