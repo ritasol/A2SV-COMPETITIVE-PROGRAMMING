@@ -1,0 +1,16 @@
+class Solution:
+    def findCircleNum(self, A):
+
+        visited = set()
+        def dfs(node):
+            for nei, n in enumerate(A[node]):
+                if n and nei not in visited:
+                    visited.add(nei)
+                    dfs(nei)
+
+        ans = 0
+        for i in range(len(A)):
+            if i not in visited:
+                dfs(i)
+                ans += 1
+        return ans
