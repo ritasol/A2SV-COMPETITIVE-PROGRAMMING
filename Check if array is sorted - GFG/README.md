@@ -6,7 +6,7 @@
 
 <pre><span style="font-size:18px"><strong>Input:
 </strong>N = 5
-arr[] = {10, 20, 30, 40, 50}
+arr[] = {10, 20, 30, 40, 5}
 <strong>Output:</strong> 1
 <strong>Explanation:</strong> The given array is sorted.
 </span></pre>
