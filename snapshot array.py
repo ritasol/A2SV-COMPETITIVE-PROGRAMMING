@@ -27,6 +27,4 @@ class SnapshotArray:
 
 # Your SnapshotArray object will be instantiated and called as such:
 # obj = SnapshotArray(length)
-# obj.set(index,val)
-# param_2 = obj.snap()
 
