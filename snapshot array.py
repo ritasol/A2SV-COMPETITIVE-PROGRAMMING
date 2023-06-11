@@ -22,9 +22,6 @@ class SnapshotArray:
                 right = mid - 1
 
         return history[right][1]
-        
-
-
-# Your SnapshotArray object will be instantiated and called as such:
+      
 
 
