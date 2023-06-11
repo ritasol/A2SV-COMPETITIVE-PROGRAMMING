@@ -26,5 +26,5 @@ class SnapshotArray:
 
 
 # Your SnapshotArray object will be instantiated and called as such:
-# obj = SnapshotArray(length)
+
 
